@@ -1,13 +1,14 @@
 import { Auth0Provider } from "@auth0/auth0-react";
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Router } from "react-router-dom";
 import App from "./App";
+import Auth0ProviderWithHistory from "./Components/Auth0ProviderWithHistory";
 import reportWebVitals from "./reportWebVitals";
 // domain and clinetId are used for authentication
-let domain = process.env.REACT_APP_AUTH_DOMAIN;
+let domain = process.env.REACT_APP_AUTH0_DOMAIN;
 console.log(domain);
-let clientId = process.env.REACT_APP_AUTH_CLIENTID;
+let clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 console.log(clientId);
 
 //audience and scope are used for authorization , e.g. accessing data in our backend API
@@ -17,7 +18,7 @@ let scope = process.env.REACT_APP_AUTH_SCOPE;
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <Auth0Provider
+    <Auth0ProviderWithHistory
       domain={domain}
       clientId={clientId}
       redirectUri={window.location.origin}
@@ -25,7 +26,7 @@ root.render(
       scope={scope}
     >
       <App />
-    </Auth0Provider>
+    </Auth0ProviderWithHistory>
   </BrowserRouter>
 );
 
