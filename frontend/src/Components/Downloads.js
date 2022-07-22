@@ -1,16 +1,9 @@
-import React from 'react';
-
-import { useAuth0 } from '@auth0/auth0-react';
+import React from "react";
 
 const Downloads = () => {
-  const { user } = useAuth0();
-  const { name, picture, email } = user;
-
   return (
     <div>
-      
-          <h1>This is Downloaded file...</h1>
-       
+      <h1>This is Downloaded file...</h1>
     </div>
   );
 };
